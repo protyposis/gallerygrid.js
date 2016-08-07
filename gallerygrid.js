@@ -158,5 +158,5 @@ var GalleryGrid = function (container, options) {
     };
 };
 
-// http://stackoverflow.com/a/5801971
+// Export to CommonJs (Node, Browserify)
 module.exports = GalleryGrid;
