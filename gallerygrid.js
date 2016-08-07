@@ -1,7 +1,9 @@
 /**
  * gallerygrid.js
+ * A simple picture gallery grid layouter
  *
- * Copyright 2015, 2016 Mario Guggenberger <mg@protyposis.net>
+ * Copyright (c) 2015, 2016 Mario Guggenberger <mg@protyposis.net>
+ * Released under the MIT license: https://opensource.org/licenses/MIT
  */
 
 var GalleryGrid = function (container, options) {
