@@ -40,10 +40,11 @@ var GalleryGrid = function (container, options) {
         container.children(".picture").each(function (i, element) {
             // The data-width and data-height attributes are required to know the image dimensions in advance
             // before the images have been requested and loaded.
-            // They could be replaced by the html5 image attributes naturalWidth/naturalHeight, but they are only
-            // available once the image has been loaded.
-            w = $('img', element).data('width');
-            h = $('img', element).data('height');
+            // If the data attributes are missing, image size can also be read from the html5 image attributes 
+            // naturalWidth/naturalHeight, but they are only available when the images are already loaded.
+            var img = $('img', element);
+            w = img.data('width') || img[0].naturalWidth;
+            h = img.data('height') || img[0].naturalHeight;
 
             row.push(element);
             rowWidth += w + 2 * options.border;
