@@ -1,0 +1,91 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>GalleryGrid.js Demo</title>
+    <meta name="description" content="A demonstration and testbed for gallerygrid.js functionality">
+    <meta name="author" content="Mario Guggenberger">
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      html {
+        /* Always show vertical scroll bar to avoid "jumping" layout when scrollbar appears/disappears */
+        overflow-y: scroll;
+      }
+
+      ul#gallery {
+        /* Reset default ul styles */
+        padding: 0;
+        margin: 0;
+
+        /* Add a border around the container to improve its visibility */
+        border: 5px solid gray;
+      }
+
+      ul#gallery li.picture {
+        /* Reset default li styles */
+        list-style: none;
+        padding: 0;
+
+        /* Display as inline-block instead of block to order items horizontally */
+        display: inline-block;
+
+        /* Add a gep between items */
+        margin: 2px;
+      }
+
+      ul#gallery li.picture img {
+        /* Add border around images */
+        outline: rgba(0,0,0,.4) solid 1px;
+        outline-offset: -1px;
+
+        /* Workaround to remove space below the image: http://stackoverflow.com/a/34952703 */
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul id="gallery">
+      <li class="picture">
+        <img src="http://placehold.it/700x400" data-width="700" data-height="400">
+      </li><li class="picture">
+        <img src="http://placehold.it/900x450" data-width="900" data-height="450">
+      </li><li class="picture">
+        <img src="http://placehold.it/1500x350" data-width="1500" data-height="350">
+      </li><li class="picture">
+        <img src="http://placehold.it/400x900" data-width="400" data-height="900">
+      </li><li class="picture">
+        <img src="http://placehold.it/300x800" data-width="300" data-height="800">
+      </li><li class="picture">
+        <img src="http://placehold.it/600x400" data-width="600" data-height="400">
+      </li><li class="picture">
+        <img src="http://placehold.it/650x400" data-width="650" data-height="400">
+      </li><li class="picture">
+        <img src="http://placehold.it/500x700" data-width="500" data-height="700">
+      </li>
+    </ul>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="dist/gallerygrid.js"></script>
+
+    <script>
+      // Instantiate a gallerygrid object for the gallery container
+      var grid = new GalleryGrid("#gallery", { border: 2, targetHeight: 250 });
+
+      // Apply the grid layout
+      grid.apply();
+
+      // Refresh grid layout (useful after container size or items have changed)
+      //grid.update();
+
+      // Remove grid layout
+      //grid.clear();
+    </script>
+  </body>
+</html>
