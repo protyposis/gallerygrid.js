@@ -11,7 +11,7 @@ var GalleryGrid = function (container, options) {
     $ = $ || jQuery || require('jquery');
 
     var defaultOptions = {
-        border: 2,
+        border: 0,
         targetHeight: 250,
         minWidth: 100, // minimum width for which the gallery grid layout will be generated
         updateOnResize: true // automatically update the grid when the window resizes
