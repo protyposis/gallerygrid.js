@@ -40,7 +40,7 @@ var GalleryGrid = function (container, options) {
         var w = 0;
         var h = 0;
 
-        container.children(".picture").each(function (i, element) {
+        container.children('.picture').each(function (i, element) {
             // The data-width and data-height attributes are required to know the image dimensions in advance
             // before the images have been requested and loaded.
             // If the data attributes are missing, image size can also be read from the html5 image attributes
@@ -66,7 +66,7 @@ var GalleryGrid = function (container, options) {
         // Resize last incomplete row
         if(row.length > 0) {
             // Set the height of the last incomplete row to the same height as the previous row to get a more homogeneous look
-            setSize(row, layoutWidth, h, prevFittedRowHeight == 0 ? options.targetHeight : prevFittedRowHeight, true);
+            setSize(row, layoutWidth, h, prevFittedRowHeight === 0 ? options.targetHeight : prevFittedRowHeight, true);
         }
     };
 
@@ -131,7 +131,7 @@ var GalleryGrid = function (container, options) {
     };
 
     var clear = function () {
-        container.find(".picture img").css({
+        container.find('.picture img').css({
             'width': '',
             'height': ''
         });
@@ -148,7 +148,7 @@ var GalleryGrid = function (container, options) {
         }
 
         // Test if the gallery width has noticeably changed
-        if (force || newWidth != layoutWidth) {
+        if (force || newWidth !== layoutWidth) {
             layoutWidth = newWidth;
             apply();
         }
