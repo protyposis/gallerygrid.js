@@ -11,7 +11,8 @@ var GalleryGrid = function (container, options) {
     var defaultOptions = {
         border: 2,
         targetHeight: 250,
-        minWidth: 100 // minimum width for which the gallery grid layout will be generated
+        minWidth: 100, // minimum width for which the gallery grid layout will be generated
+        updateOnResize: true // automatically update the grid when the window resizes
     };
 
     container = $(container); // convert container to jQuery object
@@ -22,7 +23,10 @@ var GalleryGrid = function (container, options) {
 
     var layoutWidth = container.innerWidth();
 
-    $(window).resize(function () { update() });
+    if(options.updateOnResize) {
+        // Hook the window resize event to update the grid
+        $(window).resize(function () { update() });
+    }
 
     var apply = function () {
         var row = [];
