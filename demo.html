@@ -12,6 +12,9 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
     <style type="text/css">
       html {
         /* Always show vertical scroll bar to avoid "jumping" layout when scrollbar appears/disappears */
@@ -23,8 +26,10 @@
         padding: 0;
         margin: 0;
 
-        /* Add a border around the container to improve its visibility */
-        border: 5px solid gray;
+        margin-bottom: 2em;
+
+        /* Add a background to the container to improve its visibility */
+        background-color: #ddd;
       }
 
       ul#gallery li.picture {
@@ -41,7 +46,7 @@
 
       ul#gallery li.picture img {
         /* Add border around images */
-        outline: rgba(0,0,0,.4) solid 1px;
+        outline: rgba(0,0,0,.6) solid 1px;
         outline-offset: -1px;
 
         /* Workaround to remove space below the image: http://stackoverflow.com/a/34952703 */
@@ -51,29 +56,40 @@
   </head>
 
   <body>
-    <ul id="gallery">
-      <li class="picture">
-        <img src="http://placehold.it/700x400" data-width="700" data-height="400">
-      </li><li class="picture">
-        <img src="http://placehold.it/900x450" data-width="900" data-height="450">
-      </li><li class="picture">
-        <img src="http://placehold.it/1500x350" data-width="1500" data-height="350">
-      </li><li class="picture">
-        <img src="http://placehold.it/400x900" data-width="400" data-height="900">
-      </li><li class="picture">
-        <img src="http://placehold.it/300x800" data-width="300" data-height="800">
-      </li><li class="picture">
-        <img src="http://placehold.it/600x400" data-width="600" data-height="400">
-      </li><li class="picture">
-        <img src="http://placehold.it/650x400" data-width="650" data-height="400">
-      </li><li class="picture">
-        <img src="http://placehold.it/500x700" data-width="500" data-height="700">
-      </li>
-    </ul>
+    <div class="container">
+      <h1>GalleryGrid.js Demo</h1>
+
+      <p class="lead">
+        This is a demo of the grid layout inside a responsive <a href="http://getbootstrap.com/">Bootstrap</a> container. Bootstrap is <i>not</i> required, it is just used to demo how the grid adjusts in a responsive layout. The grid markup itself is just a <code>&lt;ul&gt;</code> with multiple <code>&lt;li class="picture"&gt;</code> items that contain the <code>&lt;img src="..." data-width="..." data-height="..."&gt;</code> tags with the actual images. Resize the browser window to see how the grid automatically updates when the size of the container changes.
+      </p>
+
+      <!-- This is the actual gallery container with its items -->
+      <ul id="gallery">
+        <li class="picture">
+          <img src="http://placehold.it/700x400" data-width="700" data-height="400">
+        </li><li class="picture">
+          <img src="http://placehold.it/900x450" data-width="900" data-height="450">
+        </li><li class="picture">
+          <img src="http://placehold.it/1500x350" data-width="1500" data-height="350">
+        </li><li class="picture">
+          <img src="http://placehold.it/400x900" data-width="400" data-height="900">
+        </li><li class="picture">
+          <img src="http://placehold.it/300x800" data-width="300" data-height="800">
+        </li><li class="picture">
+          <img src="http://placehold.it/600x400" data-width="600" data-height="400">
+        </li><li class="picture">
+          <img src="http://placehold.it/650x400" data-width="650" data-height="400">
+        </li><li class="picture">
+          <img src="http://placehold.it/500x700" data-width="500" data-height="700">
+        </li>
+      </ul>
+
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="dist/gallerygrid.js"></script>
 
+    <!-- This is the JS code to initialize the grid layout -->
     <script>
       // Instantiate a gallerygrid object for the gallery container
       var grid = new GalleryGrid("#gallery", { border: 2, targetHeight: 250 });
