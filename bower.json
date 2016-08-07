@@ -1,0 +1,13 @@
+{
+  "name": "gallerygrid",
+  "version": "0.0.0",
+  "description": "A simple image gallery grid layouter",
+  "main": "dist/gallerygrid.min.js",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/protyposis/gallerygrid.js"
+  },
+  "dependencies": {
+    "jquery": "^3.1.0"
+  }
+}
