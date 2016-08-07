@@ -4,9 +4,10 @@
  * Copyright 2015, 2016 Mario Guggenberger <mg@protyposis.net>
  */
 
-var $ = require('jquery');
-
 var GalleryGrid = function (container, options) {
+    // Reuse existing jQuery and require only if not available
+    $ = $ || jQuery || require('jquery');
+
     var defaultOptions = {
         border: 2,
         targetHeight: 250,
