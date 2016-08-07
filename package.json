@@ -1,8 +1,9 @@
 {
-  "name": "gallerygrid.js",
+  "name": "gallerygrid",
   "version": "0.0.0",
   "description": "A simple image gallery grid layouter",
   "license": "MIT",
+  "main": "gallerygrid.js",
   "scripts": {},
   "repository": "http://github.com/protyposis/gallerygrid.js",
   "dependencies": {
