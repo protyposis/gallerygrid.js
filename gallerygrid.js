@@ -48,12 +48,17 @@ var GalleryGrid = function (container, options) {
             w = img.data('width') || img[0].naturalWidth;
             h = img.data('height') || img[0].naturalHeight;
 
-            row.push(element);
+            row.push({
+                element: element,
+                width: w,
+                height: h
+            });
+            w = w * (options.targetHeight / h); // scale width to targetHeight
             rowWidth += w + 2 * options.border;
-            fittedRowHeight = layoutWidth / rowWidth * h;
+            fittedRowHeight = layoutWidth / rowWidth * options.targetHeight;
 
             if(fittedRowHeight < options.targetHeight) {
-                setSize(row, layoutWidth, h, fittedRowHeight, false);
+                setSize(row, layoutWidth, fittedRowHeight, false);
 
                 // Begin a new row
                 row.length = 0;
@@ -65,24 +70,22 @@ var GalleryGrid = function (container, options) {
         // Resize last incomplete row
         if(row.length > 0) {
             // Set the height of the last incomplete row to the same height as the previous row to get a more homogeneous look
-            setSize(row, layoutWidth, h, prevFittedRowHeight === 0 ? options.targetHeight : prevFittedRowHeight, true);
+            setSize(row, layoutWidth, prevFittedRowHeight === 0 ? options.targetHeight : prevFittedRowHeight, true);
         }
     };
 
     var setSizePrevRowCache = null; // Required for computation of last incomplete row
 
-    var setSize = function (row, targetWidth, height, targetHeight, incompleteRow) {
-        var scalingFactor = height / targetHeight;
+    var setSize = function (row, targetWidth, targetHeight, incompleteRow) {
         var totalWidth = 0;
         var rowWithSize = [];
 
         // Calculate target sizes for row elements
-        $.each(row, function(i, element) {
-            var entry = {
-                element: element,
-                width: Math.round($('img', element).data('width') / scalingFactor),
-                height: Math.round(targetHeight)
-            };
+        $.each(row, function(i, entry) {
+            var scalingFactor = entry.height / targetHeight;
+            entry.width = Math.round(entry.width / scalingFactor);
+            entry.height = Math.round(targetHeight);
+
             totalWidth += entry.width + 2 * options.border;
             rowWithSize.push(entry);
         });
