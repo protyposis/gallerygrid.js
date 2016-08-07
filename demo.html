@@ -59,9 +59,29 @@
     <div class="container">
       <h1>GalleryGrid.js Demo</h1>
 
-      <p class="lead">
-        This is a demo of the grid layout inside a responsive <a href="http://getbootstrap.com/">Bootstrap</a> container. Bootstrap is <i>not</i> required, it is just used to demo how the grid adjusts in a responsive layout. The grid markup itself is just a <code>&lt;ul&gt;</code> with multiple <code>&lt;li class="picture"&gt;</code> items that contain the <code>&lt;img src="..." data-width="..." data-height="..."&gt;</code> tags with the actual images. Resize the browser window to see how the grid automatically updates when the size of the container changes.
+      <p>
+        This is a demo of the grid layout inside a responsive <a href="http://getbootstrap.com/">Bootstrap</a> container. Bootstrap is <i>not</i> required, it is just used to demo how the grid adjusts in a responsive layout. The grid markup itself is just a <code>&lt;ul&gt;</code> with multiple <code>&lt;li class="picture"&gt;</code> items that contain the <code>&lt;img src="..." data-width="..." data-height="..."&gt;</code> tags with the actual images. Resize the browser window to see how the grid automatically updates when the size of the container changes, and play around with the control panel below.
       </p>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Demo control panel</h3>
+        </div>
+        <div class="panel-body">
+          <h4>Options</h4>
+          <input type="number" class="form-control" id="config-targetheight">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="config-updateonresize"> <code>options.updateOnResize</code>
+            </label>
+          </div>
+
+          <h4>Methods</h4>
+          <button type="button" class="btn btn-primary" id="btn-apply"><code>.apply()</code></button>
+          <button type="button" class="btn btn-primary" id="btn-update"><code>.update()</code></button>
+          <button type="button" class="btn btn-primary" id="btn-clear"><code>.clear()</code></button>
+        </div>
+      </div>
 
       <!-- This is the actual gallery container with its items -->
       <ul id="gallery">
@@ -102,6 +122,28 @@
 
       // Remove grid layout
       //grid.clear();
+
+
+      // ##############################################################
+      // The following code is used for the control panel in this demo:
+
+      $('#btn-apply').click(function() {
+        grid.apply();
+      });
+      $('#btn-update').click(function() {
+        grid.update();
+      });
+      $('#btn-clear').click(function() {
+        grid.clear();
+      });
+      $('#config-targetheight').change(function() {
+        grid.options.targetHeight = $(this).val();
+      });
+      $('#config-targetheight').val(grid.options.targetHeight);
+      $('#config-updateonresize').change(function() {
+        grid.options.updateOnResize = $(this).prop('checked');
+      });
+      $('#config-updateonresize').prop('checked', grid.options.updateOnResize);
     </script>
   </body>
 </html>
