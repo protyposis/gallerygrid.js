@@ -25,10 +25,12 @@ var GalleryGrid = function (container, options) {
 
     var layoutWidth = container.innerWidth();
 
-    if(options.updateOnResize) {
-        // Hook the window resize event to update the grid
-        $(window).resize(function () { update() });
-    }
+    // Hook the window resize event to update the grid
+    $(window).resize(function () {
+        if(options.updateOnResize) {
+            update();
+        }
+    });
 
     var apply = function () {
         var row = [];
@@ -40,7 +42,7 @@ var GalleryGrid = function (container, options) {
         container.children(".picture").each(function (i, element) {
             // The data-width and data-height attributes are required to know the image dimensions in advance
             // before the images have been requested and loaded.
-            // If the data attributes are missing, image size can also be read from the html5 image attributes 
+            // If the data attributes are missing, image size can also be read from the html5 image attributes
             // naturalWidth/naturalHeight, but they are only available when the images are already loaded.
             var img = $('img', element);
             w = img.data('width') || img[0].naturalWidth;
