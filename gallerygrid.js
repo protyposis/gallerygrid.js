@@ -39,7 +39,7 @@ var GalleryGrid = function (container, options) {
         var w = 0;
         var h = 0;
 
-        container.children('.picture').each(function (i, element) {
+        container.children().each(function (i, element) {
             // The data-width and data-height attributes are required to know the image dimensions in advance
             // before the images have been requested and loaded.
             // If the data attributes are missing, image size can also be read from the html5 image attributes
@@ -133,7 +133,7 @@ var GalleryGrid = function (container, options) {
     };
 
     var clear = function () {
-        container.find('.picture img').css({
+        container.find('img').css({
             'width': '',
             'height': ''
         });
