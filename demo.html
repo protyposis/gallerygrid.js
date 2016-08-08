@@ -21,6 +21,7 @@
         overflow-y: scroll;
       }
 
+      /* Grid container */
       ul#gallery {
         /* Reset default ul styles */
         padding: 0;
@@ -32,7 +33,8 @@
         background-color: #ddd;
       }
 
-      ul#gallery li.picture {
+      /* Grid item */
+      ul#gallery li {
         /* Reset default li styles */
         list-style: none;
         padding: 0;
@@ -44,7 +46,8 @@
         margin: 2px;
       }
 
-      ul#gallery li.picture img {
+      /* Grid item image */
+      ul#gallery li img {
         /* Add border around images */
         outline: rgba(0,0,0,.6) solid 1px;
         outline-offset: -1px;
@@ -60,7 +63,7 @@
       <h1>GalleryGrid.js Demo</h1>
 
       <p>
-        This is a demo of the grid layout inside a responsive <a href="http://getbootstrap.com/">Bootstrap</a> container. The grid markup itself is just a <code>&lt;ul&gt;</code> with multiple <code>&lt;li class="picture"&gt;</code> items that contain <code>&lt;img src="..." data-width="..." data-height="..."&gt;</code> tags with the actual images. Resize the browser window to see how the grid automatically updates when the size of the container changes, and play around with the available settings and methods in the control panel below.
+        This is a demo of the grid layout inside a responsive <a href="http://getbootstrap.com/">Bootstrap</a> container. The grid markup itself is just a <code>&lt;ul&gt;</code> with multiple <code>&lt;li class="picture"&gt;</code> items that contain <code>&lt;img src="..." data-width="..." data-height="..."&gt;</code> tags with the actual images. Resize the browser window to see how the grid automatically updates when the size of the container changes, and play around with the available settings and methods in the control panel below. For more information check the description on the <a href="https://github.com/protyposis/gallerygrid.js">GitHub page</a>.
       </p>
 
       <div class="panel panel-default">
@@ -112,21 +115,21 @@
 
       <!-- This is the actual gallery container with its items -->
       <ul id="gallery">
-        <li class="picture">
+        <li>
           <img src="http://placehold.it/700x400" data-width="700" data-height="400">
-        </li><li class="picture">
+        </li><li>
           <img src="http://placehold.it/900x450" data-width="900" data-height="450">
-        </li><li class="picture">
+        </li><li>
           <img src="http://placehold.it/1500x350" data-width="1500" data-height="350">
-        </li><li class="picture">
+        </li><li>
           <img src="http://placehold.it/400x900" data-width="400" data-height="900">
-        </li><li class="picture">
+        </li><li>
           <img src="http://placehold.it/300x800" data-width="300" data-height="800">
-        </li><li class="picture">
+        </li><li>
           <img src="http://placehold.it/600x400" data-width="600" data-height="400">
-        </li><li class="picture">
+        </li><li>
           <img src="http://placehold.it/650x400" data-width="650" data-height="400">
-        </li><li class="picture">
+        </li><li>
           <img src="http://placehold.it/500x700" data-width="500" data-height="700">
         </li>
       </ul>
