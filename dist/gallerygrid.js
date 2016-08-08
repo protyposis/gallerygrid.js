@@ -14,7 +14,7 @@ var GalleryGrid = function (container, options) {
     var defaultOptions = {
         border: 0,
         targetHeight: 250,
-        minWidth: 100, // minimum width for which the gallery grid layout will be generated
+        minWidth: 0, // minimum width for which the gallery grid layout will be generated
         updateOnResize: true // automatically update the grid when the window resizes
     };
 
