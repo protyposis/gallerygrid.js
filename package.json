@@ -6,7 +6,10 @@
   "license": "MIT",
   "main": "gallerygrid.js",
   "scripts": {},
-  "repository": "http://github.com/protyposis/gallerygrid.js",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/protyposis/gallerygrid.js.git"
+  },
   "dependencies": {
     "jquery": "^3.1.0"
   },
