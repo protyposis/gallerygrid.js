@@ -2,12 +2,31 @@
   "name": "gallerygrid.js",
   "version": "0.0.0",
   "description": "A simple and lightweight image gallery grid layouter",
-  "authors": [ "Mario Guggenberger <mg@protyposis.net>" ],
-  "main": "dist/gallerygrid.min.js",
+  "authors": [
+    "Mario Guggenberger <mg@protyposis.net>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/protyposis/gallerygrid.js#readme",
   "repository": {
     "type": "git",
     "url": "git://github.com/protyposis/gallerygrid.js.git"
   },
+  "keywords": [
+    "image",
+    "picture",
+    "gallery",
+    "justified",
+    "grid",
+    "layout"
+  ],
+  "main": "dist/gallerygrid.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "dependencies": {
     "jquery": "^3.1.0"
   }
