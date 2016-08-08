@@ -1,7 +1,7 @@
 {
   "name": "gallerygrid",
   "version": "0.0.0",
-  "description": "A simple image gallery grid layouter",
+  "description": "A simple and lightweight image gallery grid layouter",
   "main": "dist/gallerygrid.min.js",
   "repository": {
     "type": "git",

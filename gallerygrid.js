@@ -1,6 +1,6 @@
 /**
  * gallerygrid.js
- * A simple picture gallery grid layouter
+ * A simple and lightweight picture gallery grid layouter
  *
  * Copyright (c) 2015, 2016 Mario Guggenberger <mg@protyposis.net>
  * Released under the MIT license: https://opensource.org/licenses/MIT
