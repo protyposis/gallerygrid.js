@@ -1,8 +1,8 @@
-<img src="./logo.png" width="225" height="190" align="center" alt="GalleryGrid.js logo"/>
+<img src="./logo.png" width="200" height="160" alt="GalleryGrid.js logo"/>
 
 # GalleryGrid.js
 
-A simple and lightweight JavaScript image gallery grid layouter. The generated layout is similar to Google+ and Flickr as explained [here](http://blog.vjeux.com/2012/image/image-layout-algorithm-google-plus.html) and [here](http://code.flickr.net/2015/03/24/much-photos/) and scales well to hundreds of pictures. Check the included [demo](./demo.html) or see it in real-world use [here](https://www.lais-foto.at/pictures).
+A simple and lightweight JavaScript image gallery grid layouter. The generated layout is similar to Google+ and Flickr (explained [here](http://blog.vjeux.com/2012/image/image-layout-algorithm-google-plus.html) and [here](http://code.flickr.net/2015/03/24/much-photos/)) and scales well to hundreds of pictures. Check the included [demo](https://cdn.rawgit.com/protyposis/gallerygrid.js/master/demo.html) or see it in real-world use [here](https://www.lais-foto.at/pictures).
 
 ## Installation
 
@@ -58,7 +58,7 @@ grid.clear();
 
 ### Example code
 
-Here is a minimum example to get the grid working as expected. You can also check the source code of the [demo](./demo.html) for a more advanced example.
+Here is a minimum example to get the grid working as expected. You can also check the source code of the [demo](https://cdn.rawgit.com/protyposis/gallerygrid.js/master/demo.html) or [this website](https://www.lais-foto.at/pictures) for more advanced examples.
 
 HTML:
 ``` html
