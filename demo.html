@@ -75,20 +75,29 @@
             <div class="form-group">
               <label for="config-targetheight" class="col-sm-4 control-label"><code>options.targetHeight</code></label>
               <div class="col-sm-4">
-                <input type="number" class="form-control" id="config-targetheight">
+                <div class="input-group">
+                  <input type="number" class="form-control" id="config-targetheight">
+                  <span class="input-group-addon">px</span>
+                </div>
               </div>
+              <span class="col-sm-4 help-block">The desired height of a row of images in the layout.</span>
             </div>
             <div class="form-group">
               <label for="config-minwidth" class="col-sm-4 control-label"><code>options.minWidth</code></label>
               <div class="col-sm-4">
-                <input type="number" class="form-control" id="config-minwidth">
+                <div class="input-group">
+                  <input type="number" class="form-control" id="config-minwidth">
+                  <span class="input-group-addon">px</span>
+                </div>
               </div>
+              <span class="col-sm-4 help-block">The minimum width of the container at which the layout will be applied. Useful to apply a responsive alternative layout (e.g. pure CSS) for extremely small screen sizes.</span>
             </div>
             <div class="form-group">
               <label for="config-updateonresize" class="col-sm-4 control-label"><code>options.updateOnResize</code></label>
               <div class="col-sm-4">
                 <input type="checkbox" id="config-updateonresize">
               </div>
+              <span class="col-sm-4 help-block">Automatic layout update when the window size changes.</span>
             </div>
           </form>
 
