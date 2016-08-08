@@ -6,7 +6,7 @@
   "main": "dist/gallerygrid.min.js",
   "repository": {
     "type": "git",
-    "url": "http://github.com/protyposis/gallerygrid.js.git"
+    "url": "git://github.com/protyposis/gallerygrid.js.git"
   },
   "dependencies": {
     "jquery": "^3.1.0"
