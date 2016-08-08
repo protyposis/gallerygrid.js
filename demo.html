@@ -108,6 +108,7 @@
 
           <button type="button" class="btn btn-primary" id="btn-apply"><code>.apply()</code></button>
           <button type="button" class="btn btn-primary" id="btn-update"><code>.update()</code></button>
+          <button type="button" class="btn btn-primary" id="btn-update-forced"><code>.update(true)</code></button>
           <button type="button" class="btn btn-primary" id="btn-clear"><code>.clear()</code></button>
 
         </div>
@@ -163,6 +164,10 @@
 
       $('#btn-update').click(function() {
         grid.update();
+      });
+
+      $('#btn-update-forced').click(function() {
+        grid.update(true);
       });
 
       $('#btn-clear').click(function() {
