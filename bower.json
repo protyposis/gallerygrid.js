@@ -1,6 +1,5 @@
 {
   "name": "gallerygrid.js",
-  "version": "1.0.0",
   "description": "A simple and lightweight image gallery grid layouter",
   "authors": [
     "Mario Guggenberger <mg@protyposis.net>"
