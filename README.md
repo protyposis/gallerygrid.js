@@ -1,4 +1,4 @@
-<img src="./logo.png" width="200" height="160" alt="GalleryGrid.js logo"/>
+<img src="./logobanner.png" alt="GalleryGrid.js logo"/>
 
 # GalleryGrid.js
 
