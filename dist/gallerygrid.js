@@ -15,7 +15,8 @@ var GalleryGrid = function (container, options) {
         border: 0,
         targetHeight: 250,
         minWidth: 0, // minimum width for which the gallery grid layout will be generated
-        updateOnResize: true // automatically update the grid when the window resizes
+        updateOnResize: true, // automatically update the grid when the window resizes
+        itemSelector: 'img' // the grid items to resize for the grid, most usually an image tag
     };
 
     container = $(container); // convert container to jQuery object
@@ -41,13 +42,20 @@ var GalleryGrid = function (container, options) {
         var h = 0;
 
         container.children().each(function (i, element) {
+            // Get the item to resize
+            var item = $(options.itemSelector, element);
+            // Skip children that do not contain an item matching the item selector
+            if(!item.length) {
+                return true;
+            }
             // The data-width and data-height attributes are required to know the image dimensions in advance
             // before the images have been requested and loaded.
-            // If the data attributes are missing, image size can also be read from the html5 image attributes
-            // naturalWidth/naturalHeight, but they are only available when the images are already loaded.
-            var img = $('img', element);
-            w = img.data('width') || img[0].naturalWidth;
-            h = img.data('height') || img[0].naturalHeight;
+            w = item.data('width');
+            h = item.data('height');
+            // If data attributes are missing, check html5 image attributes naturalWidth/naturalHeight as
+            // fallback. They are only available when the images are already loaded though.
+            if(w == null) w = item[0].naturalWidth;
+            if(h == null) h = item[0].naturalHeight;
 
             row.push({
                 element: element,
@@ -124,7 +132,7 @@ var GalleryGrid = function (container, options) {
                     fitIncompleteRow = false;
                 }
             }
-            $('img', entry.element).css({
+            $(options.itemSelector, entry.element).css({
                 'width': entry.width + 'px',
                 'height': entry.height + 'px'
             });
@@ -134,7 +142,7 @@ var GalleryGrid = function (container, options) {
     };
 
     var clear = function () {
-        container.find('img').css({
+        container.find(options.itemSelector).css({
             'width': '',
             'height': ''
         });

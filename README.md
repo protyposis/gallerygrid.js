@@ -18,7 +18,7 @@ Bower: `bower install gallerygrid.js --save`
 
 ## Usage
 
-GalleryGrid needs a certain HTML structure with CSS formatting. The required HTML is a *container* (e.g. a `div` or `ul`) that contains *items* (e.g. `div` or `li`) that contain an `img` and anything else to enrich the item. Images should have `data-width` and `data-height` attributes that contain the image size in pixels, which is required to calculate the grid before the images are loaded. If you cannot provide these attributes, you need to defer application of the grid until all images are loaded, so the sizes can be read from HTML5 attributes.
+GalleryGrid needs a certain HTML structure with CSS formatting. The required HTML is a *container* (e.g. a `div` or `ul`) that contains *items* (e.g. `div` or `li`) that contain an image (e.g. `img` or `svg`) and anything else to enrich the item. Images should have `data-width` and `data-height` attributes that contain the image size in pixels, which is required to calculate the grid before the images are loaded. If you cannot provide these attributes, you need to defer application of the grid until all images are loaded, so the sizes can be read from HTML5 attributes.
 
 CSS formatting must be applied to make sure that the container and items have zero padding (`padding: 0;`) and the items must also be displayed as inline blocks (`display: inline-block;`). There must not be any whitespaces (including line breaks) between end and start tags of items or browsers will render a space between the items that breaks the layout.
 
@@ -36,7 +36,9 @@ var grid = new GalleryGrid(container, {
   // minimum container width at which the layout will be applied (useful to apply a responsive alternative layout [e.g. pure CSS] to extremely small screen sizes)
   minWidth: 0,
   // automatically update the layout when the window size changes.
-  updateOnResize: true
+  updateOnResize: true,
+  // selector for the actual element to resize within an item (will be an img most of the time, but can be an svg too or any other element that has a size)
+  itemSelector: 'img'
 });
 
 // instance methods
