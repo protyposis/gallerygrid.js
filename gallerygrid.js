@@ -7,6 +7,8 @@
  */
 
 var GalleryGrid = function (container, options) {
+    'use strict';
+
     // Reuse existing jQuery and require only if not available
     $ = jQuery || require('jquery');
 
