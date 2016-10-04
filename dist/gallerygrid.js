@@ -8,8 +8,10 @@
  */
 
 var GalleryGrid = function (container, options) {
+    'use strict';
+
     // Reuse existing jQuery and require only if not available
-    $ = $ || jQuery || require('jquery');
+    var $ = jQuery || require('jquery');
 
     var defaultOptions = {
         border: 0,
@@ -26,62 +28,6 @@ var GalleryGrid = function (container, options) {
     this.options = options; // make options accessible from outside
 
     var layoutWidth = container.innerWidth();
-
-    // Hook the window resize event to update the grid
-    $(window).resize(function () {
-        if(options.updateOnResize) {
-            update();
-        }
-    });
-
-    var apply = function () {
-        var row = [];
-        var rowWidth = 0;
-        var fittedRowHeight = 0, prevFittedRowHeight = 0;
-        var w = 0;
-        var h = 0;
-
-        container.children().each(function (i, element) {
-            // Get the item to resize
-            var item = $(options.itemSelector, element);
-            // Skip children that do not contain an item matching the item selector
-            if(!item.length) {
-                return true;
-            }
-            // The data-width and data-height attributes are required to know the image dimensions in advance
-            // before the images have been requested and loaded.
-            w = item.data('width');
-            h = item.data('height');
-            // If data attributes are missing, check html5 image attributes naturalWidth/naturalHeight as
-            // fallback. They are only available when the images are already loaded though.
-            if(w == null) w = item[0].naturalWidth;
-            if(h == null) h = item[0].naturalHeight;
-
-            row.push({
-                element: element,
-                width: w,
-                height: h
-            });
-            w = w * (options.targetHeight / h); // scale width to targetHeight
-            rowWidth += w + 2 * options.border;
-            fittedRowHeight = layoutWidth / rowWidth * options.targetHeight;
-
-            if(fittedRowHeight < options.targetHeight) {
-                setSize(row, layoutWidth, fittedRowHeight, false);
-
-                // Begin a new row
-                row.length = 0;
-                rowWidth = 0;
-                prevFittedRowHeight = fittedRowHeight;
-            }
-        });
-
-        // Resize last incomplete row
-        if(row.length > 0) {
-            // Set the height of the last incomplete row to the same height as the previous row to get a more homogeneous look
-            setSize(row, layoutWidth, prevFittedRowHeight === 0 ? options.targetHeight : prevFittedRowHeight, true);
-        }
-    };
 
     var setSizePrevRowCache = null; // Required for computation of last incomplete row
 
@@ -141,6 +87,55 @@ var GalleryGrid = function (container, options) {
         setSizePrevRowCache = rowWithSize;
     };
 
+    var apply = function () {
+        var row = [];
+        var rowWidth = 0;
+        var fittedRowHeight = 0, prevFittedRowHeight = 0;
+        var w = 0;
+        var h = 0;
+
+        container.children().each(function (i, element) {
+            // Get the item to resize
+            var item = $(options.itemSelector, element);
+            // Skip children that do not contain an item matching the item selector
+            if(!item.length) {
+                return true;
+            }
+            // The data-width and data-height attributes are required to know the image dimensions in advance
+            // before the images have been requested and loaded.
+            w = item.data('width');
+            h = item.data('height');
+            // If data attributes are missing, check html5 image attributes naturalWidth/naturalHeight as
+            // fallback. They are only available when the images are already loaded though.
+            if(w == null) { w = item[0].naturalWidth; }
+            if(h == null) { h = item[0].naturalHeight; }
+
+            row.push({
+                element: element,
+                width: w,
+                height: h
+            });
+            w = w * (options.targetHeight / h); // scale width to targetHeight
+            rowWidth += w + 2 * options.border;
+            fittedRowHeight = layoutWidth / rowWidth * options.targetHeight;
+
+            if(fittedRowHeight < options.targetHeight) {
+                setSize(row, layoutWidth, fittedRowHeight, false);
+
+                // Begin a new row
+                row.length = 0;
+                rowWidth = 0;
+                prevFittedRowHeight = fittedRowHeight;
+            }
+        });
+
+        // Resize last incomplete row
+        if(row.length > 0) {
+            // Set the height of the last incomplete row to the same height as the previous row to get a more homogeneous look
+            setSize(row, layoutWidth, prevFittedRowHeight === 0 ? options.targetHeight : prevFittedRowHeight, true);
+        }
+    };
+
     var clear = function () {
         container.find(options.itemSelector).css({
             'width': '',
@@ -178,6 +173,13 @@ var GalleryGrid = function (container, options) {
     this.clear = function() {
         clear();
     };
+
+    // Hook the window resize event to update the grid
+    $(window).resize(function () {
+        if(options.updateOnResize) {
+            update();
+        }
+    });
 };
 
 // Export to CommonJs (Node, Browserify)
