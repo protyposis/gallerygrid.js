@@ -6,6 +6,9 @@
  * Released under the MIT license: https://opensource.org/licenses/MIT
  */
 
+ declare var jQuery: any
+ declare var require: any
+
 var GalleryGrid = function (container, options) {
     'use strict';
 
@@ -176,10 +179,10 @@ var GalleryGrid = function (container, options) {
     // Hook the window resize event to update the grid
     $(window).resize(function () {
         if(options.updateOnResize) {
-            update();
+            update(false);
         }
     });
 };
 
 // Export to CommonJs (Node, Browserify)
-module.exports = GalleryGrid;
+//module.exports = GalleryGrid;

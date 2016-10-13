@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     notify = require('gulp-notify'),
-    del = require('del');
+    del = require('del'),
+    tsify = require("tsify");
 
 gulp.task('lint', function() {
      return gulp.src('gallerygrid.js')
@@ -15,8 +16,8 @@ gulp.task('lint', function() {
 });
 
 gulp.task('dist', function() {
-    var b = browserify('gallerygrid.js', { standalone: 'GalleryGrid' })
-        .exclude('jquery');
+    var b = browserify('gallerygrid.ts', { standalone: 'GalleryGrid' })
+        .exclude('jquery').plugin(tsify);
 
     return b.bundle()
         .pipe(source('gallerygrid.js'))
